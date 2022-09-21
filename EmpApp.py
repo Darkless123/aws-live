@@ -48,7 +48,7 @@ def login():
     finally:
         cursor.close()
     
-    if valid == 1:
+    if valid != 1:
         print("Login Success")
         return render_template('AddEmp.html')
         
