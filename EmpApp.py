@@ -1,3 +1,5 @@
+
+
 from flask import Flask, render_template, request
 from pymysql import connections
 import os
@@ -48,8 +50,8 @@ def login():
 
     finally:
         cursor.close()
-    
-    if valid == 1:
+        
+    if valid[-1][-1] == 1:
         print("Login Success")
         return render_template('AddEmp.html')
         
