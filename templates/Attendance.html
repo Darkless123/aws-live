@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance</title>
+</head>
+
+<body>
+    <h1>Attendance</h1>
+    <h2>{{}}</h2>
+
+
+    <table>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Present</th>
+        </tr>
+        <tr>
+            {{for i in range(len(employee))}}
+                <td>{{employee[i][0].id}}</td>
+                <td>{{employee[i][1].name}}</td>
+                <td><button>Present</button></td>   
+            {{endfor}}
+        </tr>
+    </table>
+    
+</body>
+
+</html>
