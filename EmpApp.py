@@ -57,7 +57,7 @@ def login():
         
     else :
         print("Invalid User Credentials") 
-        render_template('Login.html')
+        return render_template('Login.html')
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
