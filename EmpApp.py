@@ -57,6 +57,7 @@ def login():
         
     else :
         print("Invalid User Credentials") 
+        return none
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
