@@ -37,16 +37,15 @@ def login():
     password = request.form['admin_password']
     sqllogin = "SELECT COUNT(username) FROM admin WHERE password= %s AND username= %s"
     cursor = db.conn.cursor()
-    cursor.execute(sqllogin, (id, password))
     try:
 
-        valid =cursor.fetchall()
-        if valid == 1
+        valid = cursor.execute(sqllogin, (id, password))
+        if valid == 1:
             cursor.close()
             print("Login Success")
             return render_template('AddEmp.html')
         
-        else
+        else :
             print("Invalid User Credentials") 
         
     except Exception as e:
@@ -68,9 +67,7 @@ def AddEmp():
         return "Please select a file"
 
     try:
-    db_conn.commit()
     
-
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
