@@ -41,7 +41,7 @@ def login():
     try:
 
         valid =cursor.fetchall()
-        if(valid == 1)
+        if valid == 1
             cursor.close()
             print("Login Success")
             return render_template('AddEmp.html')
