@@ -40,16 +40,19 @@ def login():
     try:
 
         valid = cursor.execute(sqllogin, (id, password))
-        if valid == 1:
-            cursor.close()
-            print("Login Success")
-            return render_template('AddEmp.html')
-        
-        else :
-            print("Invalid User Credentials") 
         
     except Exception as e:
             return str(e)
+
+    finally:
+        cursor.close()
+    
+    if valid == 1:
+        print("Login Success")
+        return render_template('AddEmp.html')
+        
+    else :
+        print("Invalid User Credentials") 
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
