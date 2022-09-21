@@ -35,7 +35,7 @@ def about():
 def login():
     id = request.form['admin_id']
     password = request.form['admin_password']
-    sqllogin = "SELECT COUNT(username) FROM admin WHERE password= '%s' AND username= '%s'"
+    sqllogin = "SELECT COUNT(username) FROM admin WHERE password= %s AND username= %s"
     cursor = db_conn.cursor()
     try:
 
