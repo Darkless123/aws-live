@@ -40,7 +40,7 @@ def AddLeave():
     reason = request.form['reason']
     prove = request.files['prove_file']
 
-    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s)"
+    insert_sql = "INSERT INTO leaves VALUES (%s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if prove.filename == "":
