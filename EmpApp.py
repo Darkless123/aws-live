@@ -35,11 +35,12 @@ def about():
 def login():
     id = request.form['admin_id']
     password = request.form['admin_password']
-    sqllogin = "SELECT COUNT(username) FROM admin WHERE password= %s AND username= %s"
+    sqllogin = "SELECT COUNT(username) FROM admin WHERE password= '%s' AND username= '%s'"
     cursor = db_conn.cursor()
     try:
 
-        valid = cursor.execute(sqllogin, (id, password))
+        valid = cursor.execute(sqllogin, (password, id))
+        db_conn.commit()
         
     except Exception as e:
             return str(e)
