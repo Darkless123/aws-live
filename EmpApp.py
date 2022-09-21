@@ -31,6 +31,27 @@ def about():
     return render_template('www.intellipaat.com')
 
 
+@app.route("/login", methods=['POST'])
+def login():
+    id = request.form['admin_id']
+    password = request.form['admin_password']
+    sqllogin = "SELECT COUNT(username) FROM admin WHERE password= %s AND username= %s"
+    cursor = db.conn.cursor()
+    cursor.execute(sqllogin, (id, password))
+    try:
+
+        valid =cursor.fetchall()
+        if(valid == 1){
+            cursor.close()
+            print("Login Success")
+            return render_template('AddEmp.html')
+        }
+        else{
+            print("Invalid User Credentials") 
+        
+    except Exception as e:
+            return str(e)
+
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
@@ -47,6 +68,8 @@ def AddEmp():
         return "Please select a file"
 
     try:
+    db_conn.commit()
+    
 
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
