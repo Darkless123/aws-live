@@ -25,13 +25,60 @@ table = 'employee'
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
-    return render_template('Login.html')
+    return render_template('AddLeave.html')
 
 
 @app.route("/about", methods=['POST'])
 def about():
     return render_template('www.intellipaat.com')
 
+@app.route("/addleave", methods=['POST'])
+def AddLeave():
+    leave_id = request.form['leave_id']
+    emp_id = request.form['emp_id']
+    date = request.form['date']
+    reason = request.form['reason']
+    prove = request.files['prove_file']
+
+    insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s)"
+    cursor = db_conn.cursor()
+
+    if prove.filename == "":
+        return "Please select a file"
+
+    try:
+    
+        cursor.execute(insert_sql, (leave_id, emp_id, date, reason))
+        db_conn.commit()
+        #emp_name = "" + first_name + " " + last_name
+        # Uplaod image file in S3 #
+        prove_image_in_s3 = "leave_id-" + str(leave_id) + "_image_file"
+        s3 = boto3.resource('s3')
+
+        try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
+            s3.Bucket(custombucket).put_object(Key=prove_image_in_s3, Body=prove)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                prove_image_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
+    return render_template('AddEmp.html')
 
 @app.route("/login", methods=['POST'])
 def login():
