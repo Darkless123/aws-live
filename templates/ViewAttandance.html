@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Date time</th>        
+      </tr>
+    </thead>
+    <tbody>
+      {% for (emp_id, first_name, last_name, date_time) in data %}
+        <tr>
+          <td>{{ emp_id}}</td>
+          <td>{{ first_name }}</td>
+          <td>{{ last_name }}</td>
+          <td>{{ date_time}}</td>          
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      $('#data').DataTable({
+        columns: [
+          null,
+          {searchable: false},
+          {orderable: false, searchable: false},
+          {orderable: false, searchable: false},
+          null],
+      });
+    });
+  </script>
+{% endblock %}
