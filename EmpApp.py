@@ -192,7 +192,7 @@ def GetEmpOutput():
 
 #update employee code
 @app.route("/updateemp", methods=['POST'])
-def UpdateEmp():
+def updateemp():
     emp_id = request.form['emp_id']
 
     first_name = request.form['first_name']
