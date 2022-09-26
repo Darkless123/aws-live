@@ -269,7 +269,8 @@ def attendance():
     select_sql = "SELECT emp_id, first_name, last_name FROM employee WHERE emp_id = %s"
     insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s)"
     try:
-        (emp_id, first_name, last_name, pri_skill, location) = cursor.execute(select_sql, (emp_id))
+        cursor.execute(select_sql, (emp_id))
+        (emp_id, first_name, last_name) = cursor.fetchone()
         cursor.execute(insert_sql, (emp_id, first_name, last_name, date_time))
         db_conn.commit()
         
