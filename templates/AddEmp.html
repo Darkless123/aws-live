@@ -4,27 +4,30 @@
 
 {% block content %}
 
-		
-	<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
 
-		<button type="submit" formaction="/getemp">GET EMPLOYEE INFORMATION</button>
+<form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
 
-		Employee ID:<input type="number" name="emp_id" autofocus size="40">
+	<button type="submit" formaction="/getemp"
+		style="height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE
+		INFORMATION</button><br><br>
 
-		First Name:<br> <input type="text" name="first_name" >
+	Employee ID:<br> <input style="height:25px;font-size:14pt;" type="number" name="emp_id" autofocus
+		size="40"><br><br>
 
-		Last Name:<br> <input type="text" name="last_name"><br><br>
+	First Name:<br> <input style="height:25px;font-size:14pt;;" type="text" name="first_name"><br><br>
 
-		Primary Skills:<br> <input type="text" name="pri_skill"><br><br>
+	Last Name:<br> <input style="height:25px;font-size:14pt;" type="text" name="last_name"><br><br>
 
-		Location:<br> <input type="text" name="location"><br><br>
+	Primary Skills:<br> <input style="height:25px;font-size:14pt;" type="text" name="pri_skill"><br><br>
 
-		Image: <input type=file name="emp_image_file"> <br><br>
+	Location:<br> <input style="height:25px;font-size:14pt;" type="text" name="location"><br><br>
 
-		<button type="submit">UPDATE DATABASE</button>
+	Image: <input type=file name="emp_image_file" style="height:25px;font-size:14pt;"> <br><br>
 
-	</form>
+	<button type="submit"
+		style="height: 45px; width: 200px; size: 5; font:oblique;">UPDATE
+		DATABASE</button>
+
+</form>
 <a href="/about">About Us</a>
 {% endblock %}
-
-	
