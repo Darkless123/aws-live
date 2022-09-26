@@ -269,9 +269,7 @@ def attendance():
         employee = cursor.fetchall() 
     finally:    
         cursor.close()
-
-    
-
+        
     return render_template('Attendance.html', Title="Attendance" ,employee = employee, date=tddate)
 
 if __name__ == '__main__':
