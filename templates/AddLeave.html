@@ -2,77 +2,81 @@
 
 {% block content %}
 <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="static/images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="static/css/util.css">
-    <link rel="stylesheet" type="text/css" href="static/css/main.css">
-    <!--===============================================================================================-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="static/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="static/css/util.css">
+<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
 
 <center>
 
-		<h1 style="color: Black">Employee Database</h1>
+	<h1 style="color: Black">Employee Database</h1>
 
-		<body bgcolor="lightgrey">
-			<div class="limiter">
-            <div class="container-login100">
-                <div class="wrap-login100">
-                    <div class="login100-pic js-tilt" data-tilt>
-                        <img src="static/images/leave.png" alt="IMG">
-                    </div>
+	<body bgcolor="lightgrey">
+		<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100">
+					<div class="login100-pic js-tilt" data-tilt>
+						<img src="static/images/leave.png" alt="IMG">
+					</div>
 
-			<form action="/addleave" autocomplete="on" method = "POST" enctype="multipart/form-data" class="login100-form validate-form">
+					<form action="/addleave" autocomplete="on" method="POST" enctype="multipart/form-data"
+						class="login100-form validate-form">
 
-				<div class="container-login100-form-btn">
-					<button type="submit" formaction="/getemp" class="login100-form-btn">GET EMPLOYEE INFORMATION</button>
-				</div><br>
+						<div class="container-login100-form-btn">
+							<button type="submit" formaction="/getemp" class="login100-form-btn">GET EMPLOYEE
+								INFORMATION</button>
+						</div><br>
 
-				Leave ID:<div class="wrap-input100 validate-input">
-				<input class="input100" type="number" name="leave_id" autofocus size="40">
-				<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-id-card" aria-hidden="true"></i>
-						</span></div><br>
-				
-				Employee ID:<div class="wrap-input100 validate-input">
-				<input class="input100" type="number" name="emp_id" autofocus size="40">
-				<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-id-card-o" aria-hidden="true"></i>
-						</span></div><br>
+						Leave ID:<div class="wrap-input100 validate-input">
+							<input class="input100" type="number" name="leave_id" autofocus size="40">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-id-card" aria-hidden="true"></i>
+							</span>
+						</div><br>
 
-		  		Date:<div class="wrap-input100 validate-input">
-				<input class="input100" type="date" name="date" >
-				<span class="focus-input100"></span>
-				</div><br>
+						Employee ID:<div class="wrap-input100 validate-input">
+							<input class="input100" type="number" name="emp_id" autofocus size="40">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-id-card-o" aria-hidden="true"></i>
+							</span>
+						</div><br>
 
-		  		Reason:<div class="wrap-input100 validate-input">
-				<input class="input100" type="text" name="reason">
-				<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-wheelchair" aria-hidden="true"></i>
-						</span>
-				</div><br>
+						Date:<div class="wrap-input100 validate-input">
+							<input class="input100" type="date" name="date">
+							<span class="focus-input100"></span>
+						</div><br>
 
-		  		Prove:<div class="wrap-input100 validate-input">
-				<input type=file name="prove_file" style="height:25px;font-size:14pt;color:grey;">
-				</div><br>
+						Reason:<div class="wrap-input100 validate-input">
+							<input class="input100" type="text" name="reason">
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-wheelchair" aria-hidden="true"></i>
+							</span>
+						</div><br>
 
-		  		<div class="container-login100-form-btn">
-					<button type="submit" class="login100-form-btn">UPDATE DATABASE</button>
-				</div>
-<a href="/about">About Us</a>
-			</form>
+						Prove:<div class="wrap-input100 validate-input">
+							<input type=file name="prove_file" style="height:25px;font-size:14pt;color:grey;">
+						</div><br>
 
-{% endblock %}
+						<div class="container-login100-form-btn">
+							<button type="submit" class="login100-form-btn">UPDATE DATABASE</button>
+						</div>
+						<a href="/about">About Us</a>
+					</form>
+
+					{% endblock %}
