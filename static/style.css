@@ -55,3 +55,12 @@ table {
     font-size: 2rem;
     border-collapse: collapse;
   }
+
+
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+  }
+
+tr:hover {background-color: rgb(80, 255, 235);}
