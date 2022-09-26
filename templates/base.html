@@ -6,14 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{Title}}</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/util.css') }}">
     {% block head %}{% endblock %}
 </head>
 <body>
     <nav class="navbar">
        <ul>
         <li><a href="{{url_for('addemp')}}">Add Employee Directory</a></li>
+        <li><a href="{{url_for('viewatt')}}">View Attendance</a></li>
         <li><a href="{{url_for('takeattendance')}}">Attendance</a></li>
         <li><a href="{{url_for('home')}}">Apply Leave</a></li>
+       
        </ul> 
     </nav>
     <h1>{{Title}}</h1>

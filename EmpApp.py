@@ -287,9 +287,9 @@ def viewatt():
         cursor.execute(select_sql)
         data = cursor.fetchall()
         print(data)
-        return render_template('ViewAttandance.html', Title="Attendance" , data=data)
     finally:    
         cursor.close()
+    return render_template('ViewAttandance.html', Title="Attendance" , data=data)
 
 
 if __name__ == '__main__':
