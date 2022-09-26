@@ -33,6 +33,10 @@ def home():
 def addemp():
     return render_template('AddEmp.html', Title="Add to Employee Database")
 
+@app.route("/updateemp", methods=['GET'])
+def addemp():
+    return render_template('UpdateEmp.html', Title="Update Employee Database")
+
 @app.route("/about", methods=['POST'])
 def about():
     return render_template('www.intellipaat.com')
@@ -192,7 +196,7 @@ def GetEmpOutput():
 
 #update employee code
 @app.route("/updateemp", methods=['POST'])
-def updateemp():
+def UpdateEmp():
     emp_id = request.form['emp_id']
 
     first_name = request.form['first_name']
