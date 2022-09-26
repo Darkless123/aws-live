@@ -263,15 +263,15 @@ def DeleteEmp():
 @app.route("/attendance", methods=['GET'])
 def takeattendance():
     today = date.today()
-    date_time = aslocaltimestr(today)
+    date_time = today.strftime("%d/%m/%Y")
     return render_template('Attendance.html',Title="Attendance", date=date_time)
 
 @app.route("/attendance", methods=['POST'])
 def attendance():
-    cursor = db_conn.cursor()    
-    today = date.today()
-    date_time = aslocaltimestr(today)
+    cursor = db_conn.cursor()  
     emp_id = request.form['emp_id']
+    today = date.today()
+    date_time = today.strftime("%d/%m/%Y")
     select_sql = "SELECT emp_id, first_name, last_name FROM employee WHERE emp_id = %s"
     insert_sql = "INSERT INTO attandance VALUES (%s, %s, %s, %s)"
     try:
@@ -283,7 +283,7 @@ def attendance():
     finally:    
         cursor.close()
         
-    return render_template('Attendance.html', Title="Attendance" , date=date_time)
+    return render_template('Attendance.html', Title="Attendance", date=date_time)
 
 @app.route("/viewatt", methods=['GET'])
 def viewatt():
@@ -292,10 +292,10 @@ def viewatt():
     try:
         cursor.execute(select_sql)
         data = cursor.fetchall()
-        print(data)
+        
     finally:    
         cursor.close()
-    return render_template('ViewAttandance.html', Title="Attendance" , data=data)
+    return render_template('ViewAttandance.html', Title="Attendance", data=data)
 
 
 if __name__ == '__main__':
