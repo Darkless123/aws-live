@@ -45,7 +45,7 @@ def about():
 
 @app.route("/about", methods=['GET'])
 def leave():
-    return render_template('www.intellipaat.com')
+    return render_template('AddLeave.html')
 
 @app.route("/addleave", methods=['POST'])
 def AddLeave():
