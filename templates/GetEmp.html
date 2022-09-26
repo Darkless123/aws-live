@@ -6,39 +6,39 @@
 
 
 <div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <div class="login100-pic js-tilt" data-tilt>
-                <img src="static/images/addEmp.png" alt="IMG">
-            </div>
-
-            <form class="login100-form validate-form" action="/fetchdata" autocomplete="on" method="POST">
-                <span class="login100-form-title">
-                    Get Employee Information
-                </span>
-
-                <div class="wrap-input100 validate-input" data-validate = "Employee ID is required">
-                    <input class="inputfile100" type="number" name="emp_id" placeholder="Employee ID">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                        <i class="	fa fa-tag" aria-hidden="true"></i>
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="static/images/getUser.png" alt="IMG">
+                </div>
+    
+                <form class="login100-form validate-form" action="/fetchdata" autocomplete="on" method="POST">
+                    <span class="login100-form-title">
+                        Get Employee Information
                     </span>
-                </div>
-                
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">
-                        FETCH DATA
-                    </button>
-                </div>
-
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn" formaction="/updateemp">
-                        GO TO UPDATE DATABASE PAGE
-                    </button>
-                </div>
-
-            </form>
+    
+                    <div class="wrap-input100 validate-input" data-validate = "Employee ID is required">
+                        <input class="inputfile100" type="number" name="emp_id" placeholder="Employee ID">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="	fa fa-tag" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                            FETCH DATA
+                        </button>
+                    </div>
+    
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn" formaction="/updateemp">
+                            GO TO UPDATE DATABASE PAGE
+                        </button>
+                    </div>
+    
+                </form>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
