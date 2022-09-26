@@ -256,7 +256,9 @@ def DeleteEmp():
 
 @app.route("/attendance", methods=['GET'])
 def takeattendance():
-    return render_template('Attendance.html')
+    tddate = date.today()
+    date_time = "%s/%s/%s" % (tddate.day, tddate.month, tddate.year)
+    return render_template('Attendance.html',Title="Attendance", date=date_time)
 
 @app.route("/attendance", methods=['POST'])
 def attendance():
