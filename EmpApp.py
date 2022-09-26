@@ -251,8 +251,8 @@ def DeleteEmp():
     return "Deleted employee with id: " + emp_id
 
 
-@app.route("/attendence", methods=['GET','POST'])
-def Attendence():
+@app.route("/attendance", methods=['GET','POST'])
+def Attendance():
     cursor = db_conn.cursor()
     select_sql = "SELECT * FROM employee"
     try:
@@ -265,7 +265,7 @@ def Attendence():
 
     
 
-    return render_template('Attendence.html', Title="Attendance" ,employee = employee)
+    return render_template('Attendance.html', Title="Attendance" ,employee = employee)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
