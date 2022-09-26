@@ -256,15 +256,15 @@ def DeleteEmp():
 
 @app.route("/attendance", methods=['GET'])
 def takeattendance():
-    tddate = date.today()
-    date_time = "%s/%s/%s" % (tddate.day, tddate.month, tddate.year)
+    today = date.today()
+    date_time = today.strftime("%m/%d/%Y, %H:%M:%S")
     return render_template('Attendance.html',Title="Attendance", date=date_time)
 
 @app.route("/attendance", methods=['POST'])
 def attendance():
     cursor = db_conn.cursor()    
-    tddate = date.today()
-    date_time = "%s/%s/%s" % (tddate.day, tddate.month, tddate.year)
+    today = date.today()
+    date_time = today.strftime("%m/%d/%Y, %H:%M:%S")
     emp_id = request.form['emp_id']
     select_sql = "SELECT emp_id, first_name, last_name FROM employee WHERE emp_id = %s"
     insert_sql = "INSERT INTO attandance VALUES (%s, %s, %s, %s)"
@@ -279,7 +279,17 @@ def attendance():
         
     return render_template('Attendance.html', Title="Attendance" , date=date_time)
 
-
+@app.route("/viewatt", methods=['GET'])
+def viewatt():
+    cursor = db_conn.cursor()    
+    select_sql = "SELECT * FROM attandance"
+    try:
+        cursor.execute(select_sql)
+        data = cursor.fetchall()
+        print(data)
+        return render_template('ViewAtt.html', Title="Attendance" , data=data)
+    finally:    
+        cursor.close()
 
 
 if __name__ == '__main__':
