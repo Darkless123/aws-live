@@ -263,9 +263,10 @@ def Attendence():
     finally:    
         cursor.close()
 
-        #TODO: attendence button in html page
-        #TODO: record date and time in attendence table
-        #TODO: update attendence in database
+    #TODO: attendence button in html page
+    if()
+    #TODO: record date and time in attendence table
+    #TODO: update attendence in database
 
     return render_template('Attendence.html', employee = employee)
 

@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Attendance</title>
-</head>
-
-<body>
-    <h1>Attendance</h1>
-    <h2>{{}}</h2>
-
+{% block content %}
+    <label for="curdate" >Date:</label>
+    <input type="date" name="date" id="curdate">
 
     <table>
         <tr>
@@ -17,14 +11,14 @@
             <th>Present</th>
         </tr>
         <tr>
-            {{for i in range(len(employee))}}
+            {{for i in employee}}
                 <td>{{employee[i][0].id}}</td>
                 <td>{{employee[i][1].name}}</td>
-                <td><button>Present</button></td>   
+                <td>
+                    <input type="checkbox" name="present" value="present"></td>   
             {{endfor}}
         </tr>
     </table>
-    
-</body>
+{% block content %}    
 
-</html>
+
