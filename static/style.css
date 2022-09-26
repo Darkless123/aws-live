@@ -48,9 +48,10 @@ form{
 
 table {
     color: #333;
+    margin: 0 auto;
     background: white;
     text-align: center;
     border: 1px solid grey;
-    font-size: 12pt;
+    font-size: 2rem;
     border-collapse: collapse;
   }
