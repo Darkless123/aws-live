@@ -34,7 +34,7 @@ def addemp():
     return render_template('AddEmp.html', Title="Add to Employee Database")
 
 @app.route("/updateemp", methods=['GET'])
-def addemp():
+def updateemp():
     return render_template('UpdateEmp.html', Title="Update Employee Database")
 
 @app.route("/about", methods=['POST'])
