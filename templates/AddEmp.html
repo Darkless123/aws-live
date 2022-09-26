@@ -4,30 +4,113 @@
 
 {% block content %}
 
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+<!--===============================================================================================-->
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="static/images/addEmp.png" alt="IMG">
+				</div>
 
-<form action="/addemp" autocomplete="on" method="POST" enctype="multipart/form-data">
+				<form class="login100-form validate-form" action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
+					<span class="login100-form-title">
+						Add Employee
+					</span>
 
-	<button type="submit" formaction="/getemp"
-		style="height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE
-		INFORMATION</button><br><br>
+					<div class="wrap-input100 validate-input" data-validate = "Employee ID is required">
+						<input class="input100" type="number" name="emp_id" placeholder="Employee ID">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-tag" aria-hidden="true"></i>
+						</span>
+					</div>
 
-	Employee ID:<br> <input style="height:25px;font-size:14pt;" type="number" name="emp_id" autofocus
-		size="40"><br><br>
+					<div class="wrap-input100 validate-input" data-validate = "First Name is required">
+						<input class="input100" type="text" name="first_name" placeholder="First Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
 
-	First Name:<br> <input style="height:25px;font-size:14pt;;" type="text" name="first_name"><br><br>
+                    <div class="wrap-input100 validate-input" data-validate = "Last Name is required">
+						<input class="input100" type="text" name="last_name" placeholder="Last Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
 
-	Last Name:<br> <input style="height:25px;font-size:14pt;" type="text" name="last_name"><br><br>
+                    <div class="wrap-input100 validate-input" data-validate = "Primary Skill is required">
+						<input class="input100" type="text" name="pri_skill" placeholder="Primary Skill">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-book" aria-hidden="true"></i>
+						</span>
+					</div>
 
-	Primary Skills:<br> <input style="height:25px;font-size:14pt;" type="text" name="pri_skill"><br><br>
+                    <div class="wrap-input100 validate-input" data-validate = "Location is required">
+						<input class="input100" type="text" name="location" placeholder="Location">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</span>
+					</div>
 
-	Location:<br> <input style="height:25px;font-size:14pt;" type="text" name="location"><br><br>
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="inputfile100" type="file" name="emp_image_file">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="	fa fa-file-photo-o" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							Insert Entry
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
 
-	Image: <input type=file name="emp_image_file" style="height:25px;font-size:14pt;"> <br><br>
+	
+<!--===============================================================================================-->	
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
 
-	<button type="submit"
-		style="height: 45px; width: 200px; size: 5; font:oblique;">UPDATE
-		DATABASE</button>
 
-</form>
-<a href="/about">About Us</a>
 {% endblock %}
