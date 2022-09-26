@@ -22,13 +22,14 @@
     <link rel="stylesheet" type="text/css" href="static/css/main.css">
     
 
-    <form action="/attendance" autocomplete="on" method = "POST" enctype="multipart/form-data" class="login100-form validate-form">
+    
 <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
                     <div class="login100-pic js-tilt" data-tilt>
                         <img src="static/images/img-01.png" alt="IMG">
                     </div>
+                    <form action="/attendance" autocomplete="on" method = "POST" enctype="multipart/form-data" class="login100-form validate-form">
     <h2>Today date: {{ date }}</h2>
         <label for="emp_id">Employee Id:</label><div class="wrap-input100 validate-input">
         <input type="text" id="emp_id" name="emp_id" autofocus size="40" class="input100">
