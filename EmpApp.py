@@ -27,7 +27,7 @@ table = 'employee'
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/index")
 def home():
-    return render_template('AddLeave.html', Title='Leave Application')
+    return render_template('Login.html')
 
 @app.route("/addemp", methods=['GET'])
 def addemp():
