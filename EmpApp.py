@@ -25,6 +25,7 @@ table = 'employee'
 
 
 @app.route("/", methods=['GET', 'POST'])
+@app.route("/index'")
 def home():
     return render_template('AddLeave.html', Title='Leave Application')
 
@@ -259,6 +260,8 @@ def DeleteEmp():
 def attendance():
     cursor = db_conn.cursor()
     select_sql = "SELECT * FROM employee"
+    date = date.today()
+    date = "%s/%s/%s" % (date.day, date.month, date.year)
     try:
         cursor.execute(select_sql)
         db_conn.commit()
@@ -269,7 +272,7 @@ def attendance():
 
     
 
-    return render_template('Attendance.html', Title="Attendance" ,employee = employee, date=date.today())
+    return render_template('Attendance.html', Title="Attendance" ,employee = employee, date=date)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
