@@ -191,7 +191,7 @@ def GetEmpOutput():
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
 
 #update employee code
-@app.route("/updateemp", methods=['GET', 'POST'])
+@app.route("/updateemp", methods=['POST'])
 def UpdateEmp():
     emp_id = request.form['emp_id']
 
