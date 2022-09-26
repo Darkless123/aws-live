@@ -25,92 +25,48 @@
 
 
 <h1 style="color: Black">Employee Database</h1>
+<div class="limiter">
+	<div class="container-login100">
+		<table id="data" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Employee ID</th>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Date time</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for (emp_id, first_name, last_name, date_time) in data %}
+				<tr>
+					<td>{{ emp_id}}</td>
+					<td>{{ first_name }}</td>
+					<td>{{ last_name }}</td>
+					<td>{{ date_time}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% endblock %}
 
-
-	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="static/images/leave.png" alt="IMG">
-				</div>
-
-				<form action="" autocomplete="on" method="POST" enctype="multipart/form-data"
-					class="login100-form validate-form">					
-
-				<div class="wrap-input100 validate-input">
-						<input class="input100" type="number" name="leave_id" autofocus size="40">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-id-card" aria-hidden="true"></i>
-						</span>
-					</div><br>
-
-					<div class="wrap-input100 validate-input">
-								
-						<span class="focus-input100">
-							Employee ID:<br> {{ id }} <br><br>
-						</span>
-						<span class="symbol-input100">
-							<i class="fa fa-id-card-o" aria-hidden="true"></i>
-						</span>
-					</div><br>
-
-					<div class="wrap-input100 validate-input">
-						
-						<span class="focus-input100">
-							First Name:<br> {{ fname }} <br><br>
-						</span>
-					</div><br>
-
-					<div class="wrap-input100 validate-input">
-						
-						<span class="focus-input100">
-							Last Name:<br> {{ lname }} <br><br>
-
-		
-						</span>
-						<span class="symbol-input100">
-							<i class="fa fa-wheelchair" aria-hidden="true"></i>
-						</span>
-					</div><br>
-
-					<div class="wrap-input100 validate-input">						
-						<span class="focus-input100">
-							Primary Interest:<br> {{ interest }} <br><br>
-						</span>
-						<span class="symbol-input100">
-							<i class="fa fa-wheelchair" aria-hidden="true"></i>
-						</span>
-					</div><br>
-
-					<div class="wrap-input100 validate-input">						
-						<span class="focus-input100">
-							Location:<br> {{ location }} <br><br>
-						</span>
-						<span class="symbol-input100">
-							<i class="fa fa-wheelchair" aria-hidden="true"></i>
-						</span>
-					</div><br>
-
-					<div class="wrap-input100 validate-input">						
-						<span class="focus-input100">
-							Image URL: <br> {{ image_url }} <br><br>
-						</span>
-						<span class="symbol-input100">
-							<i class="fa fa-wheelchair" aria-hidden="true"></i>
-						</span>
-				
-
-
-					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn">UPDATE DATABASE</button>
-					</div>
-					<a href="/about">About Us</a>
-				</form>
+		{% block scripts %}
+		<script>
+			$(document).ready(function () {
+				$('#data').DataTable({
+					columns: [
+						null,
+						{ searchable: false },
+						{ orderable: false, searchable: false },
+						{ orderable: false, searchable: false },
+						null],
+				});
+			});
+		</script>
+	</div>
+</div>
 
 
 
 
 
-
-				{% endblock %}
+{% endblock %}
