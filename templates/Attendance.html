@@ -3,23 +3,15 @@
 {% block content %}
     <!-- <label for="curdate" >Date:</label>
     <input type="date" name="date" id="curdate"> -->
-        <h2>Today date: {{ date }}</h2>
+    <h2>Today date: {{ date }}</h2>
+    <form action="/attendance" autocomplete="on" method = "POST" enctype="multipart/form-data">
+        <label for="emp_id">Employee Id:</label>
+        <input type="text" id="emp_id" value="emp_id">
+
+        <button type="submit" id="btnattendence">Mark Attendence</button>
         
-    <table>
-        <tr>
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>Present</th>
-        </tr>
-        <tr>
-            {{for emp in employee}}
-                <td>{{emp[0]}}</td>
-                <td>{{emp[1]}}</td>
-                <td>
-                <input type="checkbox" name="present" value="present"></td>   
-            {{endfor}}
-        </tr>
-    </table>
+    </form>      
+    
 {% block content %}    
 
 

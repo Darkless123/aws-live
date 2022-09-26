@@ -127,7 +127,6 @@ def AddEmp():
         return "Please select a file"
 
     try:
-    
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
@@ -258,19 +257,24 @@ def DeleteEmp():
 
 @app.route("/attendance", methods=['GET','POST'])
 def attendance():
-    cursor = db_conn.cursor()
-    select_sql = "SELECT * FROM employee"
+    cursor = db_conn.cursor()    
     tddate = date.today()
-    tddate = "%s/%s/%s" % (date.day, date.month, date.year)
+    date_time = "%s/%s/%s" % (tddate.day, tddate.month, tddate.year)
+    emp_id = request.form['emp_id']
+    select_sql = "SELECT emp_id, first_name, last_name FROM employee WHERE emp_id = %s"
+    insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s)"
     try:
-        cursor.execute(select_sql)
+        (emp_id, first_name, last_name, date_time) = cursor.execute(select_sql, (emp_id))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name))
         db_conn.commit()
-        print("Data fetched from MySQL RDS... fetching image from S3...")
-        employee = cursor.fetchall() 
+        
     finally:    
         cursor.close()
         
-    return render_template('Attendance.html', Title="Attendance" ,employee = employee, date=tddate)
+    return render_template('Attendance.html', Title="Attendance" , date=date_time)
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
