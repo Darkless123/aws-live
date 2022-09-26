@@ -12,9 +12,9 @@
             <th>Present</th>
         </tr>
         <tr>
-            {{for emp in employee:}}
-                <td>{{emp[0].id}}</td>
-                <td>{{emp[1].name}}</td>
+            {{for emp in employee}}
+                <td>{{emp[0]}}</td>
+                <td>{{emp[1]}}</td>
                 <td>
                 <input type="checkbox" name="present" value="present"></td>   
             {{endfor}}
