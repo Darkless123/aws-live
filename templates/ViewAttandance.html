@@ -1,43 +1,58 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="limiter">
-		<div class="container-login100">
-  <table id="data" class="table table-striped">
-    <thead>
-      <tr>
-        <th>Employee ID</th>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Date time</th>        
-      </tr>
-    </thead>
-    <tbody>
-      {% for (emp_id, first_name, last_name, date_time) in data %}
-        <tr>
-          <td>{{ emp_id}}</td>
-          <td>{{ first_name }}</td>
-          <td>{{ last_name }}</td>
-          <td>{{ date_time}}</td>          
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% endblock %}
 
-{% block scripts %}
-  <script>
-    $(document).ready(function () {
-      $('#data').DataTable({
-        columns: [
-          null,
-          {searchable: false},
-          {orderable: false, searchable: false},
-          {orderable: false, searchable: false},
-          null],
-      });
-    });
-  </script>
-      </div>
-		</div>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <!--===============================================================================================-->
+<div class="limiter">
+        <div class="container-login100">
+            <table id="data" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Date time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for (emp_id, first_name, last_name, date_time) in data %}
+                    <tr>
+                        <td>{{ emp_id}}</td>
+                        <td>{{ first_name }}</td>
+                        <td>{{ last_name }}</td>
+                        <td>{{ date_time}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endblock %}
+
+            {% block scripts %}
+            <script>
+                $(document).ready(function () {
+                    $('#data').DataTable({
+                        columns: [
+                            null,
+                            { searchable: false },
+                            { orderable: false, searchable: false },
+                            { orderable: false, searchable: false },
+                            null],
+                    });
+                });
+            </script>
+        </div>
+    </div>
 {% endblock %}
