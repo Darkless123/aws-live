@@ -267,7 +267,7 @@ def attendance():
     date_time = "%s/%s/%s" % (tddate.day, tddate.month, tddate.year)
     emp_id = request.form['emp_id']
     select_sql = "SELECT emp_id, first_name, last_name FROM employee WHERE emp_id = %s"
-    insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s)"
+    insert_sql = "INSERT INTO attandance VALUES (%s, %s, %s, %s)"
     try:
         cursor.execute(select_sql, (emp_id))
         (emp_id, first_name, last_name) = cursor.fetchone()
