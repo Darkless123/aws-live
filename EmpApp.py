@@ -173,12 +173,12 @@ def GetEmpOutput():
     try:
         cursor.execute(select_sql, (emp_id))
         db_conn.commit()
-        print("Data fetched from MySQL RDS... fetching image from S3...")
+        
         (emp_id, first_name, last_name, pri_skill, location) = cursor.fetchone()
         
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-        s3 = boto3.resource('s3')
-        s3.Bucket(custombucket).download_file(emp_image_file_name_in_s3, emp_image_file_name_in_s3)
+        # emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        # s3 = boto3.resource('s3')
+        # s3.Bucket(custombucket).download_file(emp_image_file_name_in_s3, emp_image_file_name_in_s3)
 
     finally:
         cursor.close()
@@ -254,8 +254,11 @@ def DeleteEmp():
     print("all modification done...")
     return "Deleted employee with id: " + emp_id
 
+@app.route("/attendance", methods=['GET'])
+def takeattendance():
+    return render_template('Attandance.html')
 
-@app.route("/attendance", methods=['GET','POST'])
+@app.route("/attendance", methods=['POST'])
 def attendance():
     cursor = db_conn.cursor()    
     tddate = date.today()
