@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <label for="curdate" >Date:</label>
-    <input type="date" name="date" id="curdate">
-
+    <!-- <label for="curdate" >Date:</label>
+    <input type="date" name="date" id="curdate"> -->
+        <h2>Today date: {{ "%s/%s/%s" % (date.day, date.month, date.year)) }}</h2>
+        
     <table>
         <tr>
             <th>Employee ID</th>

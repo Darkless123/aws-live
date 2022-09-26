@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 from pymysql import connections
 import os
 import boto3
+from datetime import date
 from config import *
 
 app = Flask(__name__)
@@ -27,6 +28,9 @@ table = 'employee'
 def home():
     return render_template('AddLeave.html', Title='Leave Application')
 
+@app.route("/addemp", methods=['GET'])
+def addemp():
+    return render_template('AddEmp.html')
 
 @app.route("/about", methods=['POST'])
 def about():
@@ -252,7 +256,7 @@ def DeleteEmp():
 
 
 @app.route("/attendance", methods=['GET','POST'])
-def Attendance():
+def attendance():
     cursor = db_conn.cursor()
     select_sql = "SELECT * FROM employee"
     try:
@@ -265,7 +269,7 @@ def Attendance():
 
     
 
-    return render_template('Attendance.html', Title="Attendance" ,employee = employee)
+    return render_template('Attendance.html', Title="Attendance" ,employee = employee, date=date.today())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
