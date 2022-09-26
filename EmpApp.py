@@ -194,7 +194,7 @@ def GetEmpOutput():
     print("all modification done...")
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
 
-@app.route("/updateemp", methods=['POST'])
+@app.route("/updateemp", methods=['GET'])
 def updateemp():
     return render_template('UpdateEmp.html')
 #update employee code
