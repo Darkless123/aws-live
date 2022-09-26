@@ -6,7 +6,7 @@
     <h2>Today date: {{ date }}</h2>
     <form action="/attendance" autocomplete="on" method = "POST" enctype="multipart/form-data">
         <label for="emp_id">Employee Id:</label>
-        <input type="text" id="emp_id" value="emp_id">
+        <input type="text" id="emp_id" name="emp_id" autofocus size="40">
 
         <button type="submit" id="btnattendence">Mark Attendence</button>
         
