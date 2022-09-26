@@ -37,7 +37,7 @@ def home():
 
 @app.route("/addemp", methods=['GET'])
 def addemp():
-    return render_template('AddEmp.html')
+    return render_template('AddEmp.html', Title="Add to Employee Database")
 
 @app.route("/about", methods=['POST'])
 def about():
