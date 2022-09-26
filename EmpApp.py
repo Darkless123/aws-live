@@ -43,7 +43,7 @@ def addemp():
 def about():
     return render_template('www.intellipaat.com')
 
-@app.route("/about", methods=['GET'])
+@app.route("/leave", methods=['GET'])
 def leave():
     return render_template('AddLeave.html')
 
