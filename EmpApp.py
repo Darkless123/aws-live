@@ -197,50 +197,55 @@ def GetEmpOutput():
     return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location)
 
 #update employee code
-# @app.route("/updateemp", methods=['GET','POST'])
-# def UpdateEmp():
-#     emp_id = request.form['emp_id']
-#     first_name = request.form['first_name']
-#     last_name = request.form['last_name']
-#     pri_skill = request.form['pri_skill']
-#     location = request.form['location']
-#     emp_image_file = request.files['emp_image_file']
+@app.route("/updateemp", methods=['GET', 'POST'])
+def UpdateEmp():
+    emp_id = request.form['emp_id']
 
-#     update_sql = "UPDATE employee SET first_name = %s, last_name = %s, pri_skill = %s, location = %s WHERE emp_id = %s"
-#     cursor = db_conn.cursor()    
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    pri_skill = request.form['pri_skill']
+    location = request.form['location']
+    emp_image_file = request.files['emp_image_file'] 
 
-#     try:
-#         cursor.execute(update_sql, (first_name, last_name, pri_skill, location, emp_id))
-#         db_conn.commit()
-#         emp_name = "" + first_name + " " + last_name
-#         # Uplaod image file in S3 #
-#         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-#         s3 = boto3.resource('s3')
+    update_sql = "UPDATE employee SET first_name = %s, last_name = %s, pri_skill = %s, location = %s WHERE emp_id = %s"
+    values = (first_name, last_name, pri_skill, location, emp_id)
+    cursor = db_conn.cursor()
+    
+    try:
+        cursor.execute(update_sql, values)
+        db_conn.commit()
+        emp_name = "" + first_name + " " + last_name
+        # Uplaod image file in S3 #
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        s3 = boto3.resource('s3')
 
-#         try:
-#             print("Data updated in MySQL RDS... uploading image to S3...")
-#             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
-#             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-#             s3_location = (bucket_location['LocationConstraint'])
+        try:
+            print("Data updated in MySQL RDS... updating image to S3...")
 
-#             if s3_location is None:
-#                 s3_location = ''
-#             else:
-#                 s3_location = '-' + s3_location
+            s3.Object(custombucket, emp_image_file_name_in_s3).delete()
 
-#             object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
-#                 s3_location,
-#                 custombucket,
-#                 emp_image_file_name_in_s3)
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
 
-#         except Exception as e:
-#             return str(e)
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
 
-#     finally:
-#         cursor.close()
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_image_file_name_in_s3)
 
-#     print("all modification done...")
-#     return render_template('UpdateEmp.html', name=emp_name)
+        except Exception as e:
+            return str(e)
+
+    finally:
+        cursor.close()
+
+    print("All modification done...")
+    return render_template('UpdateEmp.html', name=emp_name)
 
 # delete employee code 
 # TODO: HTML page for delete employee
