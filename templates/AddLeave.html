@@ -1,28 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-<center>
-	<font color="black" size="4" style="font-family: avenir">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="static/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <!--===============================================================================================-->
 
-		<h1 style="color: DodgerBlue">Employee Database</h1>
+<center>
+
+		<h1 style="color: Black">Employee Database</h1>
 
 		<body bgcolor="lightgrey">
+			<div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <div class="login100-pic js-tilt" data-tilt>
+                        <img src="static/images/img-01.png" alt="IMG">
+                    </div>
 
-			<form action="/addleave" autocomplete="on" method = "POST" enctype="multipart/form-data">
+			<form action="/addleave" autocomplete="on" method = "POST" enctype="multipart/form-data" class="login100-form validate-form">
 
-				<button type="submit" formaction="/getemp" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;">GET EMPLOYEE INFORMATION</button><br><br>
+				<div class="container-login100-form-btn">
+					<button type="submit" formaction="/getemp" class="login100-form-btn">GET EMPLOYEE INFORMATION</button>
+				</div><br>
 
-				Leave ID:<br> <input style="height:25px;font-size:14pt; color:grey;" type="number" name="leave_id" autofocus size="40"><br><br>
+				Leave ID:<div class="wrap-input100 validate-input">
+				<input class="input100" type="number" name="leave_id" autofocus size="40"><br><br>
 				
-				Employee ID:<br> <input style="height:25px;font-size:14pt; color:grey;" type="number" name="emp_id" autofocus size="40"><br><br>
+				Employee ID:<div class="wrap-input100 validate-input">
+				<input class="input100" type="number" name="emp_id" autofocus size="40"><br><br>
 
-		  		Date:<br> <input style="height:25px;font-size:14pt;color:grey;" type="date" name="date" ><br><br>
+		  		Date:<div class="wrap-input100 validate-input">
+				<input class="input100" type="date" name="date" >
+				</div><br>
 
-		  		Reason:<br> <input style="height:25px;font-size:14pt;color:grey;" type="text" name="reason"><br><br>
+		  		Reason:<div class="wrap-input100 validate-input">
+				<input class="input100" type="text" name="reason">
+				</div><br>
 
-		  		Prove: <input type=file name="prove_file" style="height:25px;font-size:14pt;color:grey;"> <br><br>
+		  		Prove:<div class="wrap-input100 validate-input">
+				<input type=file name="prove_file" style="height:25px;font-size:14pt;color:grey;">
+				</div><br>
 
-		  		<button type="submit" style="background: grey; height: 45px; width: 200px; color: white; size: 5; font:oblique;">UPDATE DATABASE</button>
+		  		<div class="container-login100-form-btn">
+					<button type="submit" class="login100-form-btn">UPDATE DATABASE</button>
+				</div>
 
 			</form>
 <a href="/about">About Us</a>
