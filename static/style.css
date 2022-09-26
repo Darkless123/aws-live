@@ -1,0 +1,32 @@
+.navbar{
+    background-color: rgb(46, 234, 224);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;  
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.navbar li a{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}  
+
+form{
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}

@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{Title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
     {% block head %}{% endblock %}
 </head>
 <body>
-    <nav>
+    <nav class="navbar">
        <ul>
         <li><a href="{{url_for('addemp')}}">Add Employee Directory</a></li>
         <li><a href="{{url_for('takeattendance')}}">Attendance</a></li>
