@@ -5,16 +5,10 @@ from pymysql import connections
 import os
 import boto3
 from config import *
-from datetime import date, datetime, timezone
 
-def utc_to_local(utc_dt):
-    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
-
-def aslocaltimestr(utc_dt):
-    return utc_to_local(utc_dt).strftime("%d/%m/%Y, %H:%M:%S")
 
 app = Flask(__name__)
-"%d/%m/%Y, %H:%M:%S"
+
 bucket = custombucket
 region = customregion
 
