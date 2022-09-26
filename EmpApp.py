@@ -4,11 +4,17 @@ from flask import Flask, render_template, request
 from pymysql import connections
 import os
 import boto3
-from datetime import date
 from config import *
+from datetime import date, datetime, timezone
+
+def utc_to_local(utc_dt):
+    return utc_dt.replace(tzinfo=timezone.utc).astimezone(tz=None)
+
+def aslocaltimestr(utc_dt):
+    return utc_to_local(utc_dt).strftime("%d/%m/%Y, %H:%M:%S")
 
 app = Flask(__name__)
-
+"%d/%m/%Y, %H:%M:%S"
 bucket = custombucket
 region = customregion
 
@@ -257,14 +263,14 @@ def DeleteEmp():
 @app.route("/attendance", methods=['GET'])
 def takeattendance():
     today = date.today()
-    date_time = today.strftime("%m/%d/%Y, %H:%M:%S")
+    date_time = aslocaltimestr(today)
     return render_template('Attendance.html',Title="Attendance", date=date_time)
 
 @app.route("/attendance", methods=['POST'])
 def attendance():
     cursor = db_conn.cursor()    
     today = date.today()
-    date_time = today.strftime("%m/%d/%Y, %H:%M:%S")
+    date_time = aslocaltimestr(today)
     emp_id = request.form['emp_id']
     select_sql = "SELECT emp_id, first_name, last_name FROM employee WHERE emp_id = %s"
     insert_sql = "INSERT INTO attandance VALUES (%s, %s, %s, %s)"
