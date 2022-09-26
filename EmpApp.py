@@ -43,7 +43,7 @@ def addemp():
 def about():
     return render_template('www.intellipaat.com')
 
-@app.route("/addleave", methods=['POST'])
+@app.route("/addleave", methods=['GET','POST'])
 def AddLeave():
     leave_id = request.form['leave_id']
     emp_id = request.form['emp_id']
