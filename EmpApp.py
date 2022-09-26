@@ -268,7 +268,7 @@ def Attendence():
     #TODO: record date and time in attendence table
     #TODO: update attendence in database
 
-    return render_template('Attendence.html', employee = employee)
+    return render_template('Attendence.html', Title="Attendance" ,employee = employee)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
