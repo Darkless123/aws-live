@@ -4,28 +4,36 @@
 
 {% block content %}
 
-<h1 style="color: DodgerBlue">Employee Information</h1>
-	<form>
-
-		<div>
-
-			Employee ID:<br> {{ id }} <br><br>
-
-			First Name:<br> {{ fname }} <br><br>
-
-			Last Name:<br> {{ lname }} <br><br>
-
-			Primary Interest:<br> {{ interest }} <br><br>
-
-			Location:<br> {{ location }} <br><br>
-
-			Image URL: <br> {{ image_url }} <br><br>
-
-			<button type="submit"formaction="/getemp">Back to getemp</button><br><br>
-
-		</div>
-
-	</form>
+<div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+    
+                <form class="login100-form validate-form" action="/fetchdata" autocomplete="on" method="POST">
+                    <span class="login100-form-title">
+                        Employee Information
+                    </span>
+    
+                    Employee ID:<br> {{ id }} <br><br>
+    
+                    First Name:<br> {{ fname }} <br><br>
+    
+                    Last Name:<br> {{ lname }} <br><br>
+    
+                    Primary Interest:<br> {{ interest }} <br><br>
+    
+                    Location:<br> {{ location }} <br><br>
+    
+                    Image URL: <br> {{ image_url }} <br><br>
+    
+    
+                <div class="container-login100-form-btn">
+                    <button type="submit" class="login100-form-btn" formaction="/getemp">
+                        BACK
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 {% endblock %}
