@@ -21,6 +21,7 @@
 {% block content %}
     <!-- <label for="curdate" >Date:</label>
     <input type="date" name="date" id="curdate"> -->
+    <form action="/attendance" autocomplete="on" method = "POST" enctype="multipart/form-data" class="login100-form validate-form">
 <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
@@ -28,7 +29,6 @@
                         <img src="static/images/img-01.png" alt="IMG">
                     </div>
     <h2>Today date: {{ date }}</h2>
-    <form action="/attendance" autocomplete="on" method = "POST" enctype="multipart/form-data" class="login100-form validate-form">
         <label for="emp_id">Employee Id:</label><div class="wrap-input100 validate-input">
         <input type="text" id="emp_id" name="emp_id" autofocus size="40" class="input100">
 
