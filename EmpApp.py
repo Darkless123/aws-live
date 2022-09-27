@@ -181,6 +181,7 @@ def GetEmpOutput():
             raise ValueError("Please enter a valid employee id")
     except ValueError:
             emp_id, first_name, last_name, pri_skill, location = "N/A","","","",""
+            return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill)
     
     select_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
