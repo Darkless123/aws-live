@@ -201,7 +201,7 @@ def GetEmpOutput():
                                                             'Key': emp_image_file_name_in_s3},
                                                     ExpiresIn=3600)
         except ClientError:
-            image_link = "/static/images/getUser.png"
+            image_link = "../static/images/getUser.png"
     
 
     finally:
