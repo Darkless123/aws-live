@@ -181,10 +181,8 @@ def GetEmpOutput():
             raise ValueError("Please enter a valid employee id")
         select_sql = "SELECT * FROM employee WHERE emp_id = %s"
         cursor = db_conn.cursor()
-    except ValueError:
-            emp_id, first_name, last_name, pri_skill, location = "N/A","","","",""
+    
 
-    try:
         cursor.execute(select_sql, (emp_id))
         db_conn.commit()
         
@@ -200,7 +198,8 @@ def GetEmpOutput():
                                                     ExpiresIn=3600)
         except ClientError:
             image_link = "/static/images/getUser.png"
-        
+    except ValueError:
+            emp_id, first_name, last_name, pri_skill, location = "N/A","","","",""
 
     finally:
         cursor.close()
