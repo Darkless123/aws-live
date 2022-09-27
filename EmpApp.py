@@ -202,7 +202,7 @@ def GetEmpOutput():
 
         try:
             # s3.Bucket(custombucket).get_object(Key=emp_image_file_name_in_s3)
-            image_link = s3.generate_presigned_url('get_object',
+            image_link = boto3.client.generate_presigned_url('get_object',
                                                     Params={'Bucket': custombucket,
                                                             'Key': emp_image_file_name_in_s3},
                                                     ExpiresIn=3600)
