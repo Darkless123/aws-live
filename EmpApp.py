@@ -1,5 +1,3 @@
-
-
 from flask import Flask, render_template, request
 from pymysql import connections
 import os
@@ -143,7 +141,7 @@ def AddEmp():
     try:
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
-        emp_name = "" + first_name + " " + last_name
+        emp_name = first_name + " " + last_name
         # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
         s3 = boto3.resource('s3')
@@ -187,23 +185,10 @@ def GetEmpOutput():
         
         (emp_id, first_name, last_name, pri_skill, location) = cursor.fetchone()
         
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-        s3 = boto3.resource('s3')
-        bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-        s3_location = (bucket_location['LocationConstraint'])
-
-        if s3_location is None:
-            s3_location = ''
-        else:
-            s3_location = '-' + s3_location
-
-        object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
-            s3_location,
-            custombucket,
-            emp_image_file_name_in_s3)
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"        
 
         try:
-            # s3.Bucket(custombucket).get_object(Key=emp_image_file_name_in_s3)
+        # Generate temporary URL for image file in S3             
             image_link = boto3.client('s3').generate_presigned_url('get_object',
                                                     Params={'Bucket': custombucket,
                                                             'Key': emp_image_file_name_in_s3},
@@ -213,9 +198,8 @@ def GetEmpOutput():
 
     finally:
         cursor.close()
-
-    print("all modification done...")
-    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=object_url, emp_img=image_link)
+    
+    return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_link)
 
 #update employee code
 @app.route("/updateemp", methods=['POST'])
