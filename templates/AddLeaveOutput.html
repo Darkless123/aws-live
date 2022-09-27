@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}{%endblock %}
+
+{% block content %}
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <span class="login100-form-title">
+                    ADD SUCCESSFUL
+                </span>
+                <span class="login100-form-title">
+                    Following Employee's leave has been added to the database
+                </span>
+                <span class="login100-form-title">
+                    {{ name }}
+                </span>
+			<title>Add Emp Output</title>
+				<form action="http://3.134.115.108:80/" autocomplete="on" method = "GET">
+                  
+                    <div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn" style="position: ; left: 300px;" >
+							RETURN
+						</button>
+					</div>
+				</form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
