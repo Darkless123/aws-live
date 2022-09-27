@@ -206,8 +206,8 @@ def GetEmpOutput():
                                                     Params={'Bucket': custombucket,
                                                             'Key': emp_image_file_name_in_s3},
                                                     ExpiresIn=3600)
-        except Exception as e:
-            return str(e)
+        except ClientError:
+            image_link = "/static/images/getUser.png"
 
     finally:
         cursor.close()
