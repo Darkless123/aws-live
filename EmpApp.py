@@ -92,7 +92,7 @@ def AddLeave():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AddEmp.html')
+    return render_template('AddLeaveOutput.html', name=emp_id)
 
 @app.route("/login", methods=['POST'])
 def login():
