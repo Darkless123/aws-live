@@ -182,7 +182,7 @@ def GetEmpOutput():
     except ValueError:
             emp_id, first_name, last_name, pri_skill, location = "N/A","N/A","N/A","N/A","N/A"
             image_link = "../static/images/getUser.png"
-            return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, , location=location, image_url=image_link)
+            return render_template('GetEmpOutput.html', id=emp_id, fname=first_name, lname=last_name, interest=pri_skill, location=location, image_url=image_link)
     
     select_sql = "SELECT * FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
