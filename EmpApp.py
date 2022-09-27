@@ -38,13 +38,18 @@ def addemp():
 def updateemp():
     return render_template('UpdateEmp.html', Title="Update Employee Database")
 
-@app.route("/about", methods=['POST'])
+@app.route("/about", methods=['GET','POST'])
 def about():
-    return render_template('www.intellipaat.com')
+    return "Hello, Flask is running"
 
 @app.route("/leave", methods=['GET'])
 def leave():
     return render_template('AddLeave.html')
+
+#get employee codes
+@app.route("/getemp", methods=['GET','POST'])
+def GetEmp():
+    return render_template('GetEmp.html')
 
 @app.route("/addleave", methods=['POST'])
 def AddLeave():
@@ -168,10 +173,7 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
-#get employee codes
-@app.route("/getemp", methods=['GET','POST'])
-def GetEmp():
-    return render_template('GetEmp.html')
+
 
 @app.route("/fetchdata", methods=['POST'])
 def GetEmpOutput():
@@ -307,11 +309,14 @@ def attendance():
         (emp_id, first_name, last_name) = cursor.fetchone()
         cursor.execute(insert_sql, (emp_id, first_name, last_name, date_time))
         db_conn.commit()
-        
+        message = "Attendance marked for " + emp_id + " " + first_name + " " + last_name
+    except Exception as e:
+        emp_id = "Employee not found"
+        message = "Employee not found"
     finally:    
         cursor.close()
         
-    return render_template('Attendance.html', Title="Attendance", date=date_time)
+    return render_template('Attendance.html', Title="Attendance", date=date_time, message=message)
 
 @app.route("/viewatt", methods=['GET'])
 def viewatt():
